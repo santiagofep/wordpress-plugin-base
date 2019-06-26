@@ -25,7 +25,7 @@ if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_
      */
     function plugin_name_public_assets($hook)
     {
-
+        $js_ver  = date("ymd-Gis", filemtime(plugin_dir_path(__FILE__) . 'assets/dist/main.js'));
         wp_enqueue_script('plugin_name_main', plugins_url('assets/dist/main.js', __FILE__), array(jquery), $js_ver);
         wp_localize_script(
             'plugin_name_main',
